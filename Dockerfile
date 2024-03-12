@@ -1,12 +1,12 @@
 # Build stage
 
-FROM eclipse-temurin/21-jdk AS builder
+FROM maven:3-eclipse-temurin-21 AS builder
 
 # label the docker file
 LABEL MAINTAINER="darrylng@nus.edu.sg"
 LABEL APPLICATION="SSF Day 17 lecture"
 
-ARG APP_DIR = /app
+ARG APP_DIR=/app
 
 # dir where it will contain your src and target
 WORKDIR ${APP_DIR}
