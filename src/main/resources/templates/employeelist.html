@@ -41,7 +41,7 @@
                 <td data-th-text="${emp.salary}"></td>
                 <td data-th-text="${emp.PostalCode}"></td>
                 <td>
-                    <a class="btn btn-danger" data-th-href="@{employees/delete/{email}{email=${emp.email}}}">Delete</a>
+                    <a class="btn btn-danger" data-th-href="@{employees/delete/{email}(email=${emp.email})}">Delete</a>
                 </td>
             </tr>
         </tbody>
