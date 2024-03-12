@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.validation.Valid;
@@ -65,4 +66,14 @@ public class EmployeeController {
 
         return "employeelist";
     }
+
+    @GetMapping("/delete/{email}")
+    public String deleteEmployee(@PathVariable("email") String email) {
+        Employee employee = empRepo.findByEmail(email);
+
+        Boolean isDeleted = empRepo.deleteEmployee(employee);
+
+        return "redirect:/employees/list";
+    }
+    
 }

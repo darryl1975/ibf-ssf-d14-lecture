@@ -66,4 +66,27 @@ public class EmployeeRepo {
 
         return isSaved;
     }
+
+    public Employee findByEmail(String email) {
+        Employee retrievedEmployee = employees.stream().filter(emp -> emp.getEmail().equals(email)).findFirst().get();
+
+        return retrievedEmployee;
+    }
+
+
+    public Boolean deleteEmployee(Employee employee) {
+        // returns true means successfully deleted, returns false means delete unsuccessful
+        Boolean isDeleted = false;
+
+        int indexValue = employees.indexOf(employee);
+
+        // record found in array (array starts from position 0)
+        // -1 means not found
+        if (indexValue >= 0) {
+            employees.remove(indexValue);
+            isDeleted = true;
+        } 
+        
+        return isDeleted;
+    }
 }
